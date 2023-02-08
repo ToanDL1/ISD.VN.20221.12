@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="147.0" fitWidth="226.0" layoutX="39.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../asstets/img/eco_logo.png" />
+            <Image url="@../../../assets/img/eco_logo.png" />
          </image>
       </ImageView>
       <Text layoutX="443.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ECO" wrappingWidth="39.42022705078125">

@@ -4,21 +4,18 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="521.0" prefWidth="670.0" style="-fx-border-color: #029925;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label alignment="TOP_CENTER" contentDisplay="TOP" layoutX="207.0" text="ECOBIKE" textFill="#029925">
          <font>
             <Font name="Arial Black" size="33.0" />
          </font>
       </Label>
-      <ImageView fx:id="parking1Img" fitHeight="150.0" fitWidth="200.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="parking2Img" fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="parking3Img" fitHeight="150.0" fitWidth="200.0" layoutX="400.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true" />
-      <ButtonBar layoutX="400.0" layoutY="5.0" prefHeight="40.0" prefWidth="200.0">
+      <ButtonBar layoutX="443.0" layoutY="5.0" prefHeight="40.0" prefWidth="200.0">
         <buttons>
           <Button fx:id="homeView" mnemonicParsing="false" style="-fx-background-color: #029925; -fx-cursor: pointer;" text="Home">
                <font>
@@ -31,8 +28,6 @@
             <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
          </padding>
       </Label>
-      <Label layoutX="58.0" layoutY="296.0" prefHeight="25.0" prefWidth="66.0" text="Parking 1" />
-      <Label layoutX="257.0" layoutY="296.0" prefHeight="25.0" prefWidth="66.0" text="Parking 2" />
-      <Label layoutX="467.0" layoutY="296.0" prefHeight="25.0" prefWidth="66.0" text="Parking 3" />
+      <VBox fx:id="parkingListVbox" layoutX="15.0" layoutY="113.0" prefHeight="398.0" prefWidth="646.0" />
    </children>
 </Pane>
