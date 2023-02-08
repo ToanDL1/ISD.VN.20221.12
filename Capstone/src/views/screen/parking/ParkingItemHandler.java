@@ -35,7 +35,7 @@ public class ParkingItemHandler extends BaseScreenHandler {
 		// TODO Auto-generated constructor stub
 	}
 
-public void setParkingItem(parking parkingItem) {
+    public void setParkingItem(parking parkingItem) {
 	   this.parkingItem = parkingItem;
 	   displayParking();
    }
