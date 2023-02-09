@@ -43,7 +43,7 @@
             <Image url="@../../../assets/img/eco_logo.png" />
          </image>
       </ImageView>
-      <TextField layoutX="273.0" layoutY="244.0" prefHeight="38.0" prefWidth="174.0" />
+      <TextField fx:id="BarCodeInput" layoutX="273.0" layoutY="244.0" prefHeight="38.0" prefWidth="174.0" />
       <Text layoutX="146.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nhập mã code :" wrappingWidth="107.73667907714844">
          <font>
             <Font name="System Bold" size="14.0" />

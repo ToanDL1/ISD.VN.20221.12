@@ -10,6 +10,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import utils.Configs;
+import views.fxml.rent.BarCodeScreenHandler;
 import views.screen.BaseScreenHandler;
 
 public class BikeItemHandler extends BaseScreenHandler {
@@ -40,6 +42,20 @@ public class BikeItemHandler extends BaseScreenHandler {
 	       Image image = new Image(file.toURI().toString());
 //	       System.out.println(parkingItem.getImg());
 	       bikeImg.setImage(image);
+	       bikeButton.setOnMouseClicked(e -> {
+			try {
+				System.out.println("Chuyen sang dien barcode");
+				setBarCode(bikeItem.getId());
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		});
 	}
-
+   
+	public void setBarCode(int barcode) throws IOException {
+		BarCodeScreenHandler barCodeScreen = new BarCodeScreenHandler(this.stage,Configs.BARCODE_SCREEN_PATH, barcode);
+		barCodeScreen.show();
+		barCodeScreen.setBarCode(barcode);
+	}
 }

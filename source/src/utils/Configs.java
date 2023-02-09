@@ -9,6 +9,7 @@ public class Configs {
 	public static final String BIKE_ITEM_PATH = "/views/fxml/bikeItem.fxml";
 	public static final String PAYMENT_PATH = "/views/fxml/payment.fxml";
 	public static final String PARKING_ITEM_PATH ="/views/fxml/parkingItem.fxml";
+	public static final String BARCODE_SCREEN_PATH = "/views/fxml/barcodeScreen.fxml";
   
 	
 	public static final String DB_URL = "jdbc:mysql://localhost:3306/capstone";
