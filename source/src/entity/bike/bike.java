@@ -14,6 +14,9 @@ public class bike {
     private int price;
     private int status;
     private String img;
+    public bike() {
+		super();
+	}
 	public bike(int id, int idParking, int price, int status, String img) {
 		super();
 		this.id = id;
@@ -30,9 +33,6 @@ public class bike {
 		this.img = img;
 	}
 
-	public bike() {
-		super();
-	}
 	public int getId() {
 		return id;
 	}
@@ -79,4 +79,21 @@ public class bike {
             }
 			return bikeList;
   }
+    public static bike getBikeById(int id) throws SQLException {
+    	String sql = "select * from bike where id = "+ id +";";
+    	Statement stm = EcoDB.getConnetttion().createStatement();
+		ResultSet res = stm.executeQuery(sql);
+		bike rentBike = new bike();
+		while(res.next()) {
+			rentBike.setId(res.getInt("id"));
+			rentBike.setIdParking(res.getInt("idparking"));
+			rentBike.setPrice(res.getInt("price"));
+            rentBike.setImg(res.getString("img"));
+		}
+		return rentBike;
+    }
+
+	
+
+
 }

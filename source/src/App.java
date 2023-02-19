@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javafx.animation.FadeTransition;
 import javafx.application.Application;
@@ -8,6 +9,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import utils.Configs;
+import utils.DbCheck;
 import views.screen.home.HomeScreenHandler;
 
 public class App extends Application {
@@ -36,7 +38,7 @@ public class App extends Application {
 				homeScreen.show();
 			} catch (IOException e1) {
 				e1.printStackTrace();
-			}
+			} 
 		});
 		
 		// Setup animation sequence

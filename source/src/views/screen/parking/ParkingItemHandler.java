@@ -12,9 +12,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import utils.Configs;
-import views.fxml.bike.BikeScreenHandler;
 import views.screen.BaseScreenHandler;
 import views.screen.FXMLScreenHandler;
+import views.screen.bike.BikeScreenHandler;
 
 public class ParkingItemHandler extends BaseScreenHandler {
 	@FXML

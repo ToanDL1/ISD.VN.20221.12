@@ -28,11 +28,11 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
-      <Button layoutX="255.0" layoutY="307.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="174.0" text="Thuê xe">
+      <Button fx:id="rentButton" layoutX="255.0" layoutY="307.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="174.0" text="Thuê xe">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
-      <Button layoutX="255.0" layoutY="391.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="174.0" text="Trả xe">
+      <Button fx:id="backButton" layoutX="255.0" layoutY="391.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="174.0" text="Trả xe">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
