@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
+import entity.Invoice.Invoice;
 import entity.bike.bike;
 import entity.db.EcoDB;
 import javafx.fxml.FXML;
@@ -19,7 +20,7 @@ import javafx.stage.Stage;
 import utils.Configs;
 import views.screen.BaseScreenHandler;
 import views.screen.home.HomeScreenHandler;
-import views.screen.payment.PaymentSceenHandler;
+import views.screen.payment.PaymentScreenHandler;
 import views.screen.popup.PopupScreen;
 
 public class BarCodeScreenHandler extends BaseScreenHandler implements Initializable{
@@ -89,8 +90,9 @@ public class BarCodeScreenHandler extends BaseScreenHandler implements Initializ
 			System.out.println("nhay sang payment");
 			int id =checkBarCode();
 			bike bikeRent = bike.getBikeById(id);
-			PaymentSceenHandler payment = new PaymentSceenHandler(stage, Configs.PAYMENT_FORM_PATH, bikeRent);
-			payment.setCost();
+			Invoice invoiceBike = new Invoice(bikeRent);
+			PaymentScreenHandler payment = new PaymentScreenHandler(stage, Configs.PAYMENT_FORM_PATH, invoiceBike);
+			
 			payment.show();
 		}
 	}

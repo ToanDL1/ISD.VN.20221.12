@@ -82,13 +82,13 @@ public class HomeScreenHandler extends BaseScreenHandler  implements Initializab
 					  PopupScreen.error(mess);
 				  }else {
 					  LocalDateTime timeBackBike = LocalDateTime.now();
-					    System.out.println("Before formatting: " + timeBackBike);
-					    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+//					  System.out.println("Before formatting: " + timeBackBike);
+					  DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
-					    System.out.println(timeBackBike.format(myFormatObj));
+//					  System.out.println(timeBackBike.format(myFormatObj));
 					  String sql = "update rent_bike set endAt = "  
                                    + "\""+ timeBackBike.format(myFormatObj) +"\""
-                                   + ";";
+                                   + "where status = 1"+";";
 					  Statement stm = EcoDB.getConnetttion().createStatement();
 				      int res = stm.executeUpdate(sql);
 				      

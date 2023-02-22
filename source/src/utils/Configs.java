@@ -14,10 +14,11 @@ public class Configs {
     public static final String GIVE_BACK_BIKE_PATH ="/views/fxml/backBike.fxml";
     public static final String POP_UP_PATH = "/views/fxml/popup.fxml";
     public static final String SUCC_NOTI_PATH ="/views/fxml/successNoti.fxml";
-    
+    public static final String RESULT_SCREEN_PATH= "/views/fxml/result.fxml";
 	
 	public static final String DB_URL = "jdbc:mysql://localhost:3306/capstone";
 	public static final String DB_USER = "root";
 	public static final String DB_PASS  = "31012001";
+	public static final String PROCESS_TRANSACTION_URL = "http://localhost:8000/processTransaction";
 	
 }
