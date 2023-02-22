@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-import entity.card.card;
+
 import entity.db.EcoDB;
-import entity.payment.payment;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -35,8 +35,7 @@ public class GiveBackBikeHandler extends BaseScreenHandler implements Initializa
 	@FXML
 	private ImageView bikeImg;
 	
-	private payment paymentBike;
-	
+
 
 	public GiveBackBikeHandler(Stage stage, String screenPath) throws IOException {
 		super(stage, screenPath);
@@ -48,23 +47,9 @@ public class GiveBackBikeHandler extends BaseScreenHandler implements Initializa
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		try {
-			this.paymentBike = payment.getPayment();
-			bikeId.setText(Integer.toString(paymentBike.getBikeid()));
-			postage.setText(Integer.toString(paymentBike.getPostage()));
-			bikeTime.setText(Integer.toString(paymentBike.getTime()) +"h");
-			refund.setText(Integer.toString(paymentBike.getRefund()));
-			File file = new File(paymentBike.getImg());
-		    Image image = new Image(file.toURI().toString());
-		    bikeImg.setImage(image);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+	
 		btnBackBike.setOnMouseClicked(e->{
 			try {
-				updateCard();
 				updateRentBike();
 				SuccessNotiHandler successNotiPayment = new SuccessNotiHandler(stage, Configs.SUCC_NOTI_PATH);
 				successNotiPayment.show();
@@ -80,19 +65,6 @@ public class GiveBackBikeHandler extends BaseScreenHandler implements Initializa
 		});
 	
 	}
-
-
-
-
-	private void updateCard() throws SQLException {
-		// TODO Auto-generated method stub
-		card creditCard = card.getcard();
-		int amount = creditCard.getBalance()+this.paymentBike.getRefund();
-		String sql = "update card set balance = " + amount +";";
-	    Statement stm = EcoDB.getConnetttion().createStatement();
-	    int res = stm.executeUpdate(sql);
-	}
-
 
 
 
