@@ -91,6 +91,7 @@ public class BarCodeScreenHandler extends BaseScreenHandler implements Initializ
 			int id =checkBarCode();
 			bike bikeRent = bike.getBikeById(id);
 			Invoice invoiceBike = new Invoice(bikeRent);
+			invoiceBike.setDeposit();
 			PaymentScreenHandler payment = new PaymentScreenHandler(stage, Configs.PAYMENT_FORM_PATH, invoiceBike);
 			
 			payment.show();

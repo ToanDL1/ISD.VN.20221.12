@@ -84,8 +84,10 @@ public class Invoice {
    		   DateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
    		   Date date1= simpleDateFormat.parse(startRent);
    		   Date date2 = simpleDateFormat.parse(endRent);
+   		   
    		   long getDiff = date2.getTime() - date1.getTime();
-   		   long getDiffHour = TimeUnit.MINUTES.toHours(getDiff);
+   		   long getDiffHour = TimeUnit.MILLISECONDS.toHours(getDiff);
+   		
    		   
    		   invoice.setTotalTime(getDiffHour);
    		   invoice.setMoneyRent(getDiffHour * 30000);

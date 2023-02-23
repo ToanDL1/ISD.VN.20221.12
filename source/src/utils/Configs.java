@@ -9,12 +9,14 @@ public class Configs {
 	public static final String BIKE_LIST_PATH = "/views/fxml/bikeList.fxml";
 	public static final String BIKE_ITEM_PATH = "/views/fxml/bikeItem.fxml";
 	public static final String PAYMENT_FORM_PATH = "/views/fxml/paymentForm.fxml";
+	public static final String PAYMENT_FORM_BACK_PATH = "/views/fxml/paymentFormBack.fxml";
 	public static final String PARKING_ITEM_PATH ="/views/fxml/parkingItem.fxml";
 	public static final String BARCODE_SCREEN_PATH = "/views/fxml/barcodeScreen.fxml";
     public static final String GIVE_BACK_BIKE_PATH ="/views/fxml/backBike.fxml";
     public static final String POP_UP_PATH = "/views/fxml/popup.fxml";
     public static final String SUCC_NOTI_PATH ="/views/fxml/successNoti.fxml";
     public static final String RESULT_SCREEN_PATH= "/views/fxml/result.fxml";
+    
 	
 	public static final String DB_URL = "jdbc:mysql://localhost:3306/capstone";
 	public static final String DB_USER = "root";

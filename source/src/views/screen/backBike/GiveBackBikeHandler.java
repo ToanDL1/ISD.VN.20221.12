@@ -67,14 +67,10 @@ public class GiveBackBikeHandler extends BaseScreenHandler implements Initializa
 		
 		btnBackBike.setOnMouseClicked(e->{
 			try {
-				updateRentBike();
-				SuccessNotiHandler successNotiPayment = new SuccessNotiHandler(stage, Configs.SUCC_NOTI_PATH);
-				successNotiPayment.show();
-				successNotiPayment.setNoti("Chúc mừng bạn đã trả xe thành công");
-			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (IOException e1) {
+				
+				PaymentBackScreenHandler paymentBackScreen= new PaymentBackScreenHandler(stage,Configs.PAYMENT_FORM_BACK_PATH,invoiceBike);
+				paymentBackScreen.show();
+				} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
@@ -83,12 +79,7 @@ public class GiveBackBikeHandler extends BaseScreenHandler implements Initializa
 	
 	}
 
-	private void updateRentBike() throws SQLException {
-		// TODO Auto-generated method stub
-	 String sql = "update rent_bike set status = 0 where status = 1";
-	 Statement stm = EcoDB.getConnetttion().createStatement();
-     int res = stm.executeUpdate(sql);
-	}
+	
 	
 	
 

@@ -105,7 +105,7 @@ public class PaymentController extends BaseController {
 //			
 //			System.out.println("chay đen try");
 			result.put("RESULT", "PAYMENT SUCCESSFUL!");
-			result.put("MESSAGE", "You have succesffully paid the order!");
+			result.put("MESSAGE", "Congratulations Succesffully payment!");
 			
 		} catch (PaymentException | UnrecognizedException ex) {
 			System.out.println("chay den payment controller catch: "+ex.getMessage() );
@@ -117,12 +117,18 @@ public class PaymentController extends BaseController {
 		return result;
 	}
 	
-	public void updateRentbike(bike bikeRent) throws SQLException {
+	public void updateRentBike(bike bikeRent) throws SQLException {
 	    String sql = "insert into rent_bike (bikeId,status) values( "
 	    		      +bikeRent.getId()+ ",1);";
 		Statement stm = EcoDB.getConnetttion().createStatement();
 		int res = stm.executeUpdate(sql);
 		System.out.println(res);
     }
+	
+	public void updateRentBikeBack() throws SQLException {
+		 String sql = "update rent_bike set status = 0 where status = 1";
+		 Statement stm = EcoDB.getConnetttion().createStatement();
+	     int res = stm.executeUpdate(sql);
+	}
 
 }

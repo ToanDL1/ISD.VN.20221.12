@@ -1,47 +1,41 @@
-package views.screen.payment;
+package views.screen.backBike;
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.SQLException;
 import java.util.Map;
-import java.util.ResourceBundle;
 
 import controller.PaymentController;
 import entity.Invoice.Invoice;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import utils.Configs;
 import views.screen.BaseScreenHandler;
-import views.screen.popup.PopupScreen;
 import views.screen.successNoti.SuccessNotiHandler;
 
-public class PaymentScreenHandler extends BaseScreenHandler {
-
+public class PaymentBackScreenHandler extends BaseScreenHandler {
+	
+	@FXML
+	private Label refundLabel;
+	
+	@FXML
+	private Label moneyLabel;
+	
 	@FXML
 	private Button btnConfirmPayment;
-
-	@FXML 
-	private Label costLabel;
-
+	
 	private Invoice invoice;
 
-	public PaymentScreenHandler(Stage stage, String screenPath, int amount, String contents) throws IOException {
+	public PaymentBackScreenHandler(Stage stage, String screenPath , Invoice invoice) throws IOException {
 		super(stage, screenPath);
-	}
-
-	public PaymentScreenHandler(Stage stage, String screenPath, Invoice invoice) throws IOException {
-		super(stage, screenPath);
+		// TODO Auto-generated constructor stub
 		this.invoice = invoice;
 		
 		try {
-			costLabel.setText(Integer.toString(invoice.getDeposit()) + " VND");
+			refundLabel.setText(Integer.toString(invoice.getDeposit()) + " VND");
+			moneyLabel.setText(Long.toString(invoice.getMoneyRent())+ "VND");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -56,6 +50,8 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 		});
 	}
 	
+
+
 
 	@FXML
 	private TextField cardNumber;
@@ -72,17 +68,19 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 	void confirmToPayOrder() throws IOException, SQLException{
 		String contents = "pay order";
 		PaymentController ctrl = new PaymentController();
-		Map<String, String> response = ctrl.payOrder(invoice.getDeposit(), contents, cardNumber.getText(), holderName.getText(),
+		int amount =(int) (invoice.getMoneyRent()) - invoice.getDeposit();
+		Map<String, String> response = ctrl.payOrder(amount, contents, cardNumber.getText(), holderName.getText(),
 				expirationDate.getText(), securityCode.getText());
-		ctrl.updateRentBike(invoice.getBikeInvoice());
 		System.out.println("result:" + response.get("RESULT"));
 		System.out.println("message: " + response.get("MESSAGE"));
+		ctrl.updateRentBikeBack();
         SuccessNotiHandler succNoti = new SuccessNotiHandler(stage, Configs.SUCC_NOTI_PATH);
         
         succNoti.setNoti(response.get("MESSAGE"));
         succNoti.show();
 	}
 
+
 	
-	
+
 }
